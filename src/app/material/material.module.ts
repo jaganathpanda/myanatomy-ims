@@ -24,7 +24,10 @@ import * as Material from "@angular/material";
     Material.MatSortModule,
     Material.MatDialogModule,
     Material.MatCardModule,
-    Material.MatGridListModule
+    Material.MatGridListModule,
+    Material.MatMenuModule,
+    Material.MatTabsModule
+
   ],
 
   exports: [
@@ -46,7 +49,9 @@ import * as Material from "@angular/material";
     Material.MatSortModule,
     Material.MatDialogModule,
     Material.MatCardModule,
-    Material.MatGridListModule
+    Material.MatGridListModule,
+    Material.MatMenuModule,
+    Material.MatTabsModule
   ],
   declarations: []
 })

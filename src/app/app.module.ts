@@ -15,6 +15,8 @@ import {environment} from '../environments/environment';
 import {DepartmentService} from './shared/department.service';
 import { CandidateListComponent } from './candidates/candidate-list/candidate-list.component';
 import { CardviewComponent } from './cardview/cardview.component';
+import { ProcessComponent,DialogOverviewExampleDialog } from './process/process.component';
+import { ProcessDialogComponent } from './process-dialog/process-dialog.component';
 
 
 
@@ -25,9 +27,13 @@ import { CardviewComponent } from './cardview/cardview.component';
     CandidateComponent,
     CandidateListComponent,
     CardviewComponent,
+    ProcessComponent,
+    ProcessDialogComponent,
+    DialogOverviewExampleDialog,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -38,6 +44,6 @@ import { CardviewComponent } from './cardview/cardview.component';
   ],
   providers: [CandidateService,DepartmentService],
   bootstrap: [AppComponent],
-  entryComponents:[CandidateComponent]
+  entryComponents:[CandidateComponent,DialogOverviewExampleDialog]
 })
 export class AppModule { }

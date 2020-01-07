@@ -1,0 +1,13 @@
+<button (click)="addTab()">Add new process</button>
+<div class="row" *ngIf="tabs.length > 0">
+<mat-tab-group>
+    
+    <mat-tab *ngFor="let tab of tabs" label={{tab}}>
+        <mat-form-field>
+            <input matInput placeholder="Input">
+          </mat-form-field>
+        
+    </mat-tab>
+   
+</mat-tab-group>
+</div>
