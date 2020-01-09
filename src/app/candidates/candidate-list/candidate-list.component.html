@@ -4,6 +4,7 @@
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
 </div>
+<input   class="candidate_upload" type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx">
 
 <table mat-table [dataSource]="listData" class="mat-elevation-z8" matSort>
 

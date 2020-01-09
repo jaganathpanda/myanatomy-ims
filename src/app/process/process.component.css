@@ -1,5 +1,18 @@
-.mat-tab-label{
-    border-style: solid;
-    border-width: 2px 2px 2px 4px;
-    
+ .mat-tab-label{
+    border-style: solid !important ;
+    border-width: 2px 2px 2px 4px !important ;
 }
+.example-large-box {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    flex: 1 1 auto;
+  
+  }
+  
+  .example-large-box {
+    height: 400px;
+    width: 500px;
+  }

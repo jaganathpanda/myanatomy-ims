@@ -46,13 +46,12 @@ export class ProcessComponent implements OnInit {
       width: '250px',
       data: { tabName: "" }
     });
-
-
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      
       if (typeof result !== "undefined") {
         this.processTabModel.tabName=result;
+        this.processTabModel.tabCreationTime=Date.now().valueOf();
         this.processService.createTab(this.processTabModel);
       }
 
