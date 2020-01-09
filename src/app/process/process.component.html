@@ -1,8 +1,13 @@
 <button (click)="addTab()">Add new process</button>
-<div class="row" *ngIf="tabs.length > 0">
+<div class="process">
+    <!-- <li *ngFor="let obj of processTab">{{obj | json}}</li> -->
 <mat-tab-group>
     
-    <mat-tab *ngFor="let tab of tabs" label={{tab}}>
+    <mat-tab class="procee-ims" *ngFor="let tab of processTab" >
+        <ng-template mat-tab-label>
+            {{tab.tabName}} <mat-icon class="tab-icon" (click)="deleteTab(tab.id)">cancel</mat-icon>
+          </ng-template>
+       
         <mat-form-field>
             <input matInput placeholder="Input">
           </mat-form-field>

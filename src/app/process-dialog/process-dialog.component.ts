@@ -14,18 +14,5 @@ export class ProcessDialogComponent implements OnInit {
   }
 
 }
-export interface DialogData {
-  animal: string;
-  name: string;
-}
-export class DialogOverviewExampleDialog {
 
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-}

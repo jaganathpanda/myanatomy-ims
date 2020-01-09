@@ -17,6 +17,8 @@ import { CandidateListComponent } from './candidates/candidate-list/candidate-li
 import { CardviewComponent } from './cardview/cardview.component';
 import { ProcessComponent,DialogOverviewExampleDialog } from './process/process.component';
 import { ProcessDialogComponent } from './process-dialog/process-dialog.component';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ProcessTab } from './model/process-tab.model';
 
 
 
@@ -42,7 +44,7 @@ import { ProcessDialogComponent } from './process-dialog/process-dialog.componen
     AngularFireModule.initializeApp(environment.firebaseConfig)
     
   ],
-  providers: [CandidateService,DepartmentService],
+  providers: [CandidateService,DepartmentService,AngularFirestore,ProcessTab],
   bootstrap: [AppComponent],
   entryComponents:[CandidateComponent,DialogOverviewExampleDialog]
 })

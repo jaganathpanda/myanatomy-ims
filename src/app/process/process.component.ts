@@ -2,7 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { CandidateService } from '../shared/candidate.service';
 import { DepartmentService } from '../shared/department.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ProcessDialogComponent } from '../process-dialog/process-dialog.component';
+
+import { InterviewProcessServiceService } from '../shared/interview-process.service';
+import { ProcessTab } from '../model/process-tab.model';
 
 @Component({
   selector: 'app-process',
@@ -11,16 +13,32 @@ import { ProcessDialogComponent } from '../process-dialog/process-dialog.compone
 })
 export class ProcessComponent implements OnInit {
 
-  constructor(private service: CandidateService,
-    private departmentService: DepartmentService,
-    public dialog: MatDialog) { }
+  public processTabModel: ProcessTab;
+   processTab: ProcessTab[];
+   tabName: string;
 
-  public tabs = [];
-  tabName: string;
+  constructor(private service: CandidateService,
+    private processService: InterviewProcessServiceService,
+    private departmentService: DepartmentService,
+    public dialog: MatDialog) {
+    this.processTabModel = new ProcessTab();
+  }
+
+
+
 
 
 
   ngOnInit() {
+    this.processService.getTabList().subscribe(data => {
+      this.processTab = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+           tabName:e.payload.doc.get('tabName')
+        } as ProcessTab;
+      })
+    });
+
   }
 
   addTab() {
@@ -29,15 +47,20 @@ export class ProcessComponent implements OnInit {
       data: { tabName: "" }
     });
 
+
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      if(   typeof result !== "undefined"){
-      this.tabName=result;
-      this.tabs.push(this.tabName);
+      if (typeof result !== "undefined") {
+        this.processTabModel.tabName=result;
+        this.processService.createTab(this.processTabModel);
       }
-      
+
     });
-    
+
+  }
+  deleteTab(tabId) {
+    this.processService.deleteTab(tabId);
   }
 
 
